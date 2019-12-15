@@ -8,9 +8,9 @@ This is a small tutorial on how to run HORNET as a systemd service. This tutoria
 
 ### Setup HORNET
 1. `cd /home/hornet`
-2. Download the [latest HORNET release](https://github.com/gohornet/hornet/releases/latest) for your system (e.g. for HORNET 0.2.4 x86_64):
+2. Download the [latest HORNET release](https://github.com/gohornet/hornet/releases/latest) for your system (e.g. for HORNET 0.2.5 x86_64):
 ```bash
-sudo -u hornet wget -O /tmp/hornet.tar.gz https://github.com/gohornet/hornet/releases/download/v0.2.4/HORNET-0.2.4_Linux_x86_64.tar.gz && sudo -u hornet mkdir -p /tmp/hornet && sudo -u hornet tar xzf /tmp/hornet.tar.gz -C /tmp/hornet && rm /tmp/hornet.tar.gz && sudo -u hornet mv /tmp/hornet/hornet /home/hornet/hornet &&  sudo -u hornet mv -vn /tmp/hornet/config.json /home/hornet/config.json && sudo -u hornet rm -r /tmp/hornet
+sudo -u hornet wget -O /tmp/hornet.tar.gz https://github.com/gohornet/hornet/releases/download/v0.2.5/HORNET-0.2.5_Linux_x86_64.tar.gz && sudo -u hornet mkdir -p /tmp/hornet && sudo -u hornet tar xzf /tmp/hornet.tar.gz -C /tmp/hornet && rm /tmp/hornet.tar.gz && sudo -u hornet mv /tmp/hornet/hornet /home/hornet/hornet &&  sudo -u hornet mv -vn /tmp/hornet/config.json /home/hornet/config.json && sudo -u hornet rm -r /tmp/hornet
 ```
 3. Setup the service
 ```bash
