@@ -1,4 +1,4 @@
-This is a small tutorial on how to run HORNET as a systemd service. This tutorial was made on a Ubuntu 18.04 x86_64 VPS but you can transfer it to other linux systems as well.
+This is a small tutorial on how to run HORNET as a systemd service. This tutorial was tested on an Ubuntu 18.04 x86_64 VPS but you can transfer it to other linux systems as well.
 
 ### Preparations
 - Setup your system and update it with `sudo apt update && sudo apt upgrade -y`
