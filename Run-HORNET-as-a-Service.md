@@ -24,11 +24,11 @@ WorkingDirectory=/home/hornet
 User=hornet
 TasksMax=infinity
 KillSignal=SIGTERM
-TimeoutStopSec=1200
+TimeoutStopSec=infinity
 ExecStart=/home/hornet/hornet -c config
 SyslogIdentifier=HORNET
 Restart=on-failure
-RestartSec=120
+RestartSec=1200
 
 [Install]
 WantedBy=multi-user.target
