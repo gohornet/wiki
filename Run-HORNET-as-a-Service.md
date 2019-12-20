@@ -8,9 +8,9 @@ This is a small tutorial on how to run HORNET as a systemd service. This tutoria
 
 ### Setup HORNET
 1. `cd /home/hornet`
-2. Download the [latest HORNET release](https://github.com/gohornet/hornet/releases/latest) for your system (e.g. for HORNET 0.2.8 x86_64):
+2. Download the [latest HORNET release](https://github.com/gohornet/hornet/releases/latest) for your system (e.g. for HORNET 0.2.9 x86_64):
 ```bash
-sudo -u hornet wget -O /tmp/hornet.tar.gz https://github.com/gohornet/hornet/releases/download/v0.2.8/HORNET-0.2.8_Linux_x86_64.tar.gz && sudo -u hornet tar xzf /tmp/hornet.tar.gz && rm /tmp/hornet.tar.gz && sudo -u hornet mv /tmp/HORNET-0.2.8_Linux_x86_64/hornet /home/hornet/hornet &&  sudo -u hornet mv -vn /tmp/HORNET-0.2.8_Linux_x86_64/config.json /home/hornet/config.json && sudo -u hornet rm -r /tmp/HORNET-0.2.8_Linux_x86_64
+sudo -u hornet wget -O /tmp/hornet.tar.gz https://github.com/gohornet/hornet/releases/download/v0.2.9/HORNET-0.2.9_Linux_x86_64.tar.gz && sudo -u hornet tar xzf /tmp/hornet.tar.gz && rm /tmp/hornet.tar.gz && sudo -u hornet mv /tmp/HORNET-0.2.9_Linux_x86_64/hornet /home/hornet/hornet &&  sudo -u hornet mv -vn /tmp/HORNET-0.2.9_Linux_x86_64/config.json /home/hornet/config.json && sudo -u hornet rm -r /tmp/HORNET-0.2.9_Linux_x86_64
 ```
 3. Setup the service
 ```bash
