@@ -35,7 +35,7 @@ These settings are available:
 * `depth`: Depth for tip selection. Set it to `3` if you don't know what this is for.
 * `message`: The message you want to send with your spam (keep it short)
 * `tag`: The tag you want to use (can not be longer than 27 trytes [A-Z, 9])
-* `tpsratelimit`: Defines how many transactions (TX) the spammer should try to send (e.g. `0.1` stands for 0.1 TX per second --> 1 TX every 10 seconds. **NOTE:** the maximum `tpsratelimit` is limited due to your used hardware. Start with a lower value and slightly increase it, watch your CPU usage.
+* `tpsratelimit`: Defines how many transactions (TX) the spammer should try to send (e.g. `0.1` stands for 0.1 TX per second --> 1 TX every 6 seconds. **NOTE:** the maximum `tpsratelimit` is limited due to your used hardware. Start with a lower value and slightly increase it, watch your CPU usage.
 * `workers`: Number of workers the spammer spins up --> Number of CPU cores you want to use (you should not use all available cores)
 
 ***
