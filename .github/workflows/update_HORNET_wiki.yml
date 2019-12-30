@@ -12,7 +12,7 @@ jobs:
       env:
         SOURCE_REPO: "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git"
         SOURCE_BRANCH: "master"
-        DESTINATION_REPO: "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/gohornet/hornet.wiki.git"
+        DESTINATION_REPO: "https://$GITHUB_ACTOR:${{secrets.WIKI_UPDATE_TOKEN}}@github.com/gohornet/hornet.wiki.git"
         DESTINATION_BRANCH: "master"
       with:
         args: $SOURCE_REPO $SOURCE_BRANCH $DESTINATION_REPO $DESTINATION_BRANCH
