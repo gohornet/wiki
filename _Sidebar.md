@@ -1,5 +1,6 @@
   * [Home](./Home)
   * [FAQ](./FAQ)
+  * [Configuration](./Configuration)
   * Tutorials
     * [Run HORNET as a Service](./Tutorials%3A-Run-HORNET-as-a-Service)
 
