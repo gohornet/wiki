@@ -38,7 +38,7 @@ This is a small tutorial on how to build HORNET if you don't want to use our [pr
   cd hornet
   ```
 - Checkout the branch you want to build (optional if you want to build the latest HORNET release (master)):
-  As an example we want to build HORNET from the `develop` branch
+  <br>As an example we want to build HORNET from the `develop` branch
   ```bash
   git checkout develop
   ```
@@ -56,4 +56,4 @@ This is a small tutorial on how to build HORNET if you don't want to use our [pr
   ```bash
   ./hornet --version
   ```
-  If HORNET prints out its version, the build was successfully
+  If HORNET prints out its version, the build was successful.
