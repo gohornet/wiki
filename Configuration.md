@@ -2,56 +2,26 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 
 ## Index
 
-- [Autopeering](#Autopeering)
 - [Compass](#Compass)
+- [Config](#Config)
 - [Dashboard](#Dashboard)
 - [DB](#DB)
 - [Graph](#Graph)
+- [httpAPI](#httpAPI)
 - [Logger](#Logger)
 - [Milestones](#Milestones)
 - [Monitor](#Monitor)
 - [MQTT](#MQTT)
 - [Network](#Network)
 - [Node](#Node)
-- [Permaspent](#Permaspent)
 - [Profile](#Profile)
+- [Profiling](#Profiling)
 - [Protocol](#Protocol)
-- [Snapshot](#Snapshot)
+- [Snapshots](#Snapshots)
 - [Spammer](#Spammer)
+- [SpentAddresses](#SpentAddresses)
 - [Tipselection](#Tipselection)
-- [WebAPI](#WebAPI)
 - [ZeroMQ](#ZeroMQ)
-
-## Autopeering
-
-**Type:** Plugin
-**Status:** Enabled
-**Options:**
-
-- `autopeering.entryNodes` []string
-  - List of trusted entry nodes for auto peering
-    Default:
-    ```json
-    ["zEiNuQMDfZ6F8QDisa1ndX32ykBTyYCxbtkO0vkaWd0=@159.69.9.6:18626"]
-    ```
-- `autopeering.port` int
-  - UDP port for incoming peering requests
-    Default:
-    ```json
-    14626
-    ```
-- `autopeering.seed` string
-  - Private key seed used to derive the node identity; optional Base64 encoded 256-bit string
-    Default:
-    ```json
-    ""
-    ```
-- `autopeering.actAsEntryNode` bool
-  - Whether the node should act as an autopeering entry node
-    Default:
-    ```json
-    false
-    ```
 
 ## Compass
 
@@ -66,6 +36,37 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     false
     ```
 
+## Config
+
+**Type:** Setting
+**Status:** n.a.
+**Options:**
+
+- `config` string
+  - Filename of the config file without the file extension
+    Default:
+    ```json
+    "config"
+    ```
+- `config-dir` string
+  - Path to the directory containing the config file
+    Default:
+    ```json
+    "."
+    ```
+- `neighborsconfig` string
+  - Filename of the neighbors config file without the file extension
+    Default:
+    ```json
+    "."
+    ```
+- `profilesconfig` string
+  - Filename of the profiles config file without the file extension
+    Default:
+    ```json
+    "profiles"
+    ```
+
 ## Dashboard
 
 **Type:** Plugin
@@ -73,40 +74,46 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Options:**
 
 - `dashboard.bindAddress` string
-  - Set the host to which the Dashboard listens
+  - The bind address on which the dashboard can be access from
     Default:
     ```json
-    "127.0.0.1"
-    ```
-- `dashboard.port` int
-  - Set the port to which the Dashboard listens
-    Default:
-    ```json
-    8081
+    "localhost:8081"
     ```
 - `dashboard.dev` bool
-  - Activate the dashboard dev mode
+  - Whether to run the dashboard in dev mode
     Default:
     ```json
     false
     ```
-- `dashboard.basic_auth.enabled` bool
-  - Whether to use HTTP Basic Auth
+- `dashboard.theme` string
+  - The theme for the dashboard to use (default or dark)
     Default:
     ```json
-    true
+    "default"
     ```
-- `dashboard.basic_auth.username` string
+- `dashboard.basicAuth.enabled` bool
+  - Whether to use HTTP basic auth
+    Default:
+    ```json
+    false
+    ```
+- `dashboard.basicAuth.username` string
   - The HTTP Basic Auth username
     Default:
     ```json
-    "hornet"
+    ""
     ```
-- `dashboard.basic_auth.password` string
-  - The HTTP Basic Auth password
+- `dashboard.basicAuth.passwordhash` string
+  - The HTTP basic auth password+salt as a sha256 hash (must be lower cased)
     Default:
     ```json
-    "hornet"
+    ""
+    ```
+- `dashboard.basicAuth.passwordsalt` string
+  - The HTTP basic auth salt used for hashing the password (must be lower cased)
+    Default:
+    ```json
+    ""
     ```
 
 ## DB
@@ -128,43 +135,120 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Status:** Disabled
 **Options:**
 
-- `graph.webrootPath` string
-  - Path to IOTA Tangle Visualiser webroot files
+- `graph.webRootPath` string
+  - The path to the visualizer web assets
     Default:
     ```json
     "IOTAtangle/webroot"
     ```
-- `graph.socketioPath` string
-
-  - Path to socket.io.js
+- `graph.webSocket.uri` string
+  - The websocket URI to use (optional)
     Default:
     ```json
-    "socket.io-client/dist/socket.io.js"
+    ""
     ```
-
 - `graph.domain` string
-  - Set the domain on which IOTA Tangle Visualiser is served
+  - Sets the domain name from which the visualizer is served from
     Default:
     ```json
     ""
     ```
 - `graph.bindAddress` string
-  - Set the host to which the IOTA Tangle Visualiser listens
+  - The bind address from which the visualizer can be accessed from
     Default:
     ```json
-    "127.0.0.1"
-    ```
-- `graph.port` int
-  - IOTA Tangle Visualiser webserver port
-    Default:
-    ```json
-    8083
+    "localhost:8083"
     ```
 - `graph.networkName` string
-  - Name of the network shown in IOTA Tangle Visualiser
+  - The name of the network to be shown on the visualizer site
     Default:
     ```json
     "meets HORNET"
+    ```
+
+## httpAPI
+
+**Type:** Plugin
+**Status:** Enabled
+**Options:**
+
+- `httpAPI.bindAddress` string
+  - The bind address on which the HTTP API listens on
+    Default:
+    ```json
+    "0.0.0.0:14265"
+    ```
+- `httpAPI.permitRemoteAccess` []string
+  - The allowed HTTP API calls which can be called from non whitelisted addresses
+    Default:
+    ```json
+    [
+      "getNodeInfo",
+      "getBalances",
+      "checkConsistency",
+      "getTransactionsToApprove",
+      "getInclusionStates",
+      "getNodeAPIConfiguration",
+      "wereAddressesSpentFrom",
+      "broadcastTransactions",
+      "findTransactions",
+      "storeTransactions",
+      "getTrytes"
+    ]
+    ```
+- `httpAPI.whitelistedAddresses` []string
+  - The whitelist of addresses which are allowed to access the HTTP API
+    Default:
+    ```json
+    []
+    ```
+- `httpAPI.basicAuth.enabled` bool
+  - Whether to use HTTP basic auth for the HTTP API
+    Default:
+    ```json
+    false
+    ```
+- `httpAPI.basicAuth.username` string
+  - The username of the HTTP basic auth
+    Default:
+    ```json
+    ""
+    ```
+- `httpAPI.basicauth.passwordhash` string
+  - The HTTP basic auth password+salt as a sha256 hash (must be lower cased)
+    Default:
+    ```json
+    ""
+    ```
+- `httpAPI.basicauth.passwordsalt` string
+  - The HTTP basic auth salt used for hashing the password (must be lower cased)
+    Default:
+    ```json
+    ""
+    ```
+- `httpAPI.limits.bodyLengthBytes` int
+  - The maximum number of characters that the body of an API call may contain
+    Default:
+    ```json
+    1000000
+    ```
+- `httpAPI.limits.findTransactions` int
+  - The maximum number of transactions that may be returned by the findTransactions endpoint
+    Default:
+    ```json
+    1000
+    ```
+- `httpAPI.limits.getTrytes` int
+  - The maximum number of trytes that may be returned by the getTrytes endpoint
+    Default:
+    ```json
+    1000
+    ```
+- `httpAPI.limits.requestsList` int
+  - The maximum number of parameters in an API call
+    Default:
+    ```json
+    1000
     ```
 
 ## Logger
@@ -215,21 +299,17 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Options:**
 
 - `milestones.coordinator` string
-
   - The address of the coordinator
     Default:
     ```json
     "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9"
     ```
-
 - `milestones.coordinatorSecurityLevel` int
-
   - The security level used in coordinator signatures
     Default:
     ```json
     2
     ```
-
 - `milestones.numberOfKeysInAMilestone` int
   - The depth of the Merkle tree which in turn determines the number of leaves (private keys) that the coordinator can use to sign a message
     Default:
@@ -243,35 +323,29 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Status:** Disabled
 **Options:**
 
-- `monitor.TangleMonitorPath` string
-  - Path to tanglemonitor frontend files
+- `monitor.tangleMonitorPath` string
+  - Path to the tanglemonitor web assets
     Default:
     ```json
     "tanglemonitor/frontend"
     ```
 - `monitor.domain` string
-  - Set the domain on which TangleMonitor is served
+  - The domain from which the tanglemonitor is served from
     Default:
     ```json
     ""
     ```
-- `monitor.bindAddress` string
-  - Set the host to which the TangleMonitor listens
+- `monitor.webBindAddress` string
+  - The bind address on which the monitor can be access from
     Default:
     ```json
-    "127.0.0.1"
+    "localhost:4434"
     ```
-- `monitor.port` int
-  - TangleMonitor webserver port (do not change unless you redirect back to 4434)
+- `monitor.apiBindAddress` string
+  - The bind address on which the API listens on
     Default:
     ```json
-    4434
-    ```
-- `monitor.apiPort` int
-  - TangleMonitor API port (do not change unless you redirect back to 4433)
-    Default:
-    ```json
-    4433
+    "localhost:4433"
     ```
 
 ## MQTT
@@ -293,39 +367,53 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Status:** n.a.
 **Options:**
 
-- `network.bindAddress` string
-  - Bind address for global services such as [Autopeering](#Autopeering) and Gossip
+- `network.preferIPv6` bool
+  - Defines if IPv6 is preferred for neighbors added through the APIDefines if IPv6 is preferred for neighbors added through the API
     Default:
     ```json:
-    "0.0.0.0"
-    ```
-- `network.port` int
-  - Bind port for global services such as [Autopeering](#Autopeering) and Gossip
-    Default:
-    ```json
-    15600
-    ```
-- `network.prefer_ipv6` bool
-
-  - Defines if IPv6 is preferred for neighbors added through the API or [Autopeering](#Autopeering)
-    Default:
-    ```json
     false
     ```
-
-- `network.externalAddress` string
-
+- `network.gossip.bindAddress` string
+  - The bind address of the gossip TCP server
+    Default:
+    ```json
+    "0.0.0.0:15600"
+    ```
+- `network.gossip.reconnectAttemptIntervalSeconds` int
+  - The number of seconds to wait before trying to reconnect to a disconnected neighbor
+    Default:
+    ```json
+    60
+    ```
+- `network.autopeering.entryNodes` []string
+  - List of autopeering entry nodes to use
+    Default:
+    ```json
+    ["LehlDBPJ6kfcfLOK6kAU4nD7B/BdR7SJhai7yFCbCCM=@enter.hornet.zone:14626"]
+    ```
+- `network.autopeering.bindAddress` string
+  - Bind address for global services such as autopeering and gossip
+    Default:
+    ```json
+    "0.0.0.0:14626"
+    ```
+- `network.autopeering.externalAddress` string
   - External IP address under which the node is reachable; or 'auto' to determine it automatically
     Default:
     ```json
     "auto"
     ```
-
-- `network.reconnectAttemptIntervalSeconds` int
-  - Set the number of seconds to wait before trying to reconnect to a disconnected neighbor
+- `network.autopeering.seed` string
+  - Private key seed used to derive the node identity; optional Base64 encoded 256-bit string
     Default:
     ```json
-    60
+    ""
+    ```
+- `network.autopeering.runAsEntryNode` bool
+  - Whether the node should act as an autopeering entry node
+    Default:
+    ```json
+    false
     ```
 
 ## Node
@@ -347,31 +435,6 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     []
     ```
 
-## Permaspent
-
-**Type:** Plugin
-**Status:** Enabled
-**Options:**
-
-- `permaspent.nodes` []string
-  - List of permaspent nodes
-    Default:
-    ```json
-    ["https://permaspent.manapotion.io"]
-    ```
-- `permaspent.thresholds.noResponseTolerance` float
-  - How many not responding nodes are allowed
-    Default:
-    ```json
-    0.25
-    ```
-- `permaspent.thresholds.quorum` float
-  - Quorum threshold
-    Default:
-    ```json
-    0.65
-    ```
-
 ## Profile
 
 **Type:** Setting
@@ -383,6 +446,19 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     Default:
     ```json
     "auto"
+    ```
+
+## Profiling
+
+**Type:** Setting
+**Status:** n.a.
+**Options:**
+
+- `profiling.bindAddress` string
+  - The bind address on which the profiler listens on
+    Default:
+    ```json
+    "localhost:6060"
     ```
 
 ## Protocol
@@ -404,61 +480,71 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Status:** n.a.
 **Options:**
 
-- `loadSnapshot` string
-  - Which snapshot to load 'local' or 'global'
+- `snapshots.loadType` string
+  - Which snapshot type to load. 'local' or 'global'
     Default:
     ```json
     "local"
     ```
-- `localSnapshots.enabled` bool
-  - Enable local snapshots
+- `napshots.local.enabled` bool
+  - Whether to do local snapshots
     Default:
     ```json
     true
     ```
-- `localSnapshots.depth` int
+- `snapshots.local.depth` int
   - The depth, respectively the starting point, at which a local snapshot of the ledger is generated
     Default:
     ```json
     50
     ```
-- `localSnapshots.intervalSynced` int
+- `snapshots.local.intervalSynced` int
   - Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized
     Default:
     ```json
     50
     ```
-- `localSnapshots.intervalUnsynced` int
+- `snapshots.local.intervalUnsynced` int
   - Interval, in milestone transactions, at which snapshot files are created if the ledger is not fully synchronized
     Default:
     ```json
     1000
     ```
-- `localSnapshots.path` string
+- `snapshots.local.path` string
   - Path to the local snapshot file
     Default:
     ```json
     "latest-export.gz.bin"
     ```
-- `globalSnapshot.path` string
+- `snapshots.global.path` string
   - Path to the global snapshot file containing the ledger state
     Default:
     ```json
     "snapshotMainnet.txt"
     ```
-- `globalSnapshot.index` int
+- `snapshots.global.spentAddressesPath` []string
+  - Paths to the spent addresses files
+    Default:
+    ```json
+    [
+      "previousEpochsSpentAddresses1.txt",
+      "previousEpochsSpentAddresses2.txt",
+      "previousEpochsSpentAddresses3.txt"
+    ]
+    ```
+- `snapshots.global.index` int
   - Milestone index of the global snapshot
     Default:
     ```json
     1050000
     ```
-- `pruning.enabled` bool
+- `snapshots.pruning.enabled` bool
   - Whether to delete old transaction data from the database
     Default:
     ```json
     false
     ```
-- `pruning.delay` int
+- `snapshots.pruning.delay` int
   - Amount of milestone transactions to keep in the database
     Default:
     ```json
@@ -508,6 +594,19 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     1
     ```
 
+## SpentAddresses
+
+**Type:** Setting
+**Status:** n.a.
+**Options:**
+
+- `spentAddresses.enabled` bool
+  - Enable support for wereAddressesSpentFrom (needed for Trinity, but local snapshots are much bigger)
+    Default:
+    ```json
+    true
+    ```
+
 ## Tipselection
 
 **Type:** Setting
@@ -527,100 +626,21 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     15
     ```
 
-## WebAPI
-
-**Type:** Plugin
-**Status:** Enabled
-**Options:**
-
-- `api.port` int
-  - Set the port on which the API listens
-    Default:
-    ```json
-    14265
-    ```
-- `api.bindAddress` string
-  - Set the host to which the API listens
-    Default:
-    ```json
-    "0.0.0.0"
-    ```
-- `api.permitRemoteAccess` []string
-  - Allow remote access to certain API commands
-    Default:
-    ```json
-    [
-      "getNodeInfo",
-      "getBalances",
-      "checkConsistency",
-      "getTransactionsToApprove",
-      "getInclusionStates",
-      "getNodeAPIConfiguration",
-      "wereAddressesSpentFrom",
-      "broadcastTransactions",
-      "findTransactions",
-      "storeTransactions",
-      "getTrytes"
-    ]
-    ```
-- `api.auth.username` string
-  - Basic authentication user name
-    Default:
-    ```json
-    ""
-    ```
-- `api.auth.password` string
-  - Basic authentication password
-    Default:
-    ```json
-    ""
-    ```
-- `api.maxGetTrytes` int
-  - Set a maximum number of trytes that may be returned by the getTrytes endpoint
-    Default:
-    ```json
-    10000
-    ```
-- `api.maxRequestsList` int
-  - Set a maximum number of parameters in an API call
-    Default:
-    ```json
-    1000
-    ```
-- `api.maxFindTransactions` int
-  - Set a maximum number of transactions that may be returned by the findTransactions endpoint
-    Default:
-    ```json
-    100000
-    ```
-- `api.maxBodyLength` int
-  - Set a maximum number of characters that the body of an API call may contain
-    Default:
-    ```json
-    1000000
-    ```
-
 ## ZeroMQ
 
 **Type:** Plugin
 **Status:** Disabled
 **Options:**
 
+- `zmq.bindAddress` string
+  - The bind address of the ZMQ feed
+    Default:
+    ```json
+    "localhost:5556"
+    ```
 - `zmq.protocol` string
-  - Set the protocol used [unix, tcp, udp, inproc]
+  - Protocol used to connect to the zmq feed [unix, tcp, udp, inproc]
     Default:
     ```json
     "tcp"
-    ```
-- `zmq.bindAddress` string
-  - Set the host
-    Default:
-    ```json
-    "127.0.0.1"
-    ```
-- `zmq.port` int
-  - Set the port
-    Default:
-    ```json
-    5556
     ```
