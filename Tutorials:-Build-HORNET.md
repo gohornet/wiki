@@ -1,4 +1,4 @@
-This is a small tutorial on how to build HORNET if you don't want to use our [prebuilded binaries](https://github.com/gohornet/hornet/releases). 
+This is a small tutorial on how to build HORNET if you don't want to use our [pre-built binaries](https://github.com/gohornet/hornet/releases). 
 
 **Note: This tutorial assumes that you are using Ubuntu. The setup and build process may differ on other OS.**
 
