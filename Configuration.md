@@ -335,6 +335,24 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     ""
     ```
+- `monitor.webSocket.uri` string
+  - The websocket URI to use (optional)
+    Default:
+    ```json
+    ""
+    ```
+- `monitor.remoteAPIPort` int
+  - The remote API port
+    Default:
+    ```json
+    4433
+    ```
+- `monitor.initialTransactionsCount` int
+  - The initial amount of tx to load
+    Default:
+    ```json
+    15000
+    ```
 - `monitor.webBindAddress` string
   - The bind address on which the monitor can be access from
     Default:
