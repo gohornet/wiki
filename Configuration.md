@@ -504,7 +504,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     14
     ```
 
-## Snapshot
+## Snapshots
 
 **Type:** Setting
 **Status:** n.a.
