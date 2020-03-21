@@ -440,6 +440,18 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Status:** n.a.
 **Options:**
 
+- `node.alias` string
+  - Set a alias to identify your node
+    Default:
+    ```json
+    ""
+    ```
+- `node.showAliasInGetNodeInfo` string
+  - Defines whether to show the alias in getNodeInfo
+    Default:
+    ```json
+    false
+    ```
 - `node.disablePlugins` []string
   - Disable plugins
     Default:
