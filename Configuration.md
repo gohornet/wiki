@@ -441,7 +441,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 **Options:**
 
 - `node.alias` string
-  - Set a alias to identify your node
+  - Set an alias to identify your node
     Default:
     ```json
     ""
