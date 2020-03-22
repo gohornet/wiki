@@ -11,8 +11,7 @@
       "FAQ.md",
       "Configuration.md",
       "Tutorials:-Build-HORNET.md",
-      "Tutorials:-Linux:-Install-HORNET.md",
-      "Tutorials:-Run-HORNET-as-a-Service.md"
+      "Tutorials:-Linux:-Install-HORNET.md"
     ]
   },
   "separator": ":-",
