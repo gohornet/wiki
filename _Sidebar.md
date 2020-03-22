@@ -3,6 +3,8 @@
   * [Configuration](./Configuration)
   * Tutorials
     * [Build HORNET](./Tutorials%3A-Build-HORNET)
+    * Linux
+      * [Install HORNET](./Tutorials%3A-Linux%3A-Install-HORNET)
     * [Run HORNET as a Service](./Tutorials%3A-Run-HORNET-as-a-Service)
 
 
