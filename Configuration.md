@@ -546,6 +546,12 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     "latest-export.gz.bin"
     ```
+- `snapshots.local.downloadURL` string
+  - URL to load the local snapshot file from
+    <br>Default:
+    ```json
+    ""
+    ```
 - `snapshots.global.path` string
   - Path to the global snapshot file containing the ledger state
     <br>Default:
