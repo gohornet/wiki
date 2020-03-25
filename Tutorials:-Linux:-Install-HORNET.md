@@ -1,4 +1,4 @@
-This is a small tutorial on how to install HORNET using the `.deb` package.
+This is a small tutorial on how to install HORNET using our apt repository.
 
 ### Preparations
 
@@ -11,12 +11,26 @@ This is a small tutorial on how to install HORNET using the `.deb` package.
 
 ### Installation
 
-- Download the latest HORNET `.deb` package for your system from [GitHub releases](https://github.com/gohornet/hornet/releases/latest)
-- Install HORNET with:
+- Add the HORNET repository to your APT sources<br>
+  Stable:
   ```bash
-  sudo dpkg -i hornet_<version>_<arch>.deb
+  sudo sh -c 'echo "deb http://ppa.hornet.zone stable main" >> /etc/apt/sources.list.d/hornet.list'
   ```
-  Replace `<version>` and `<arch>` accordingly to your downloaded `.deb` package
+  Nighly (pre-releases):<br>
+  ```bash
+  sudo sh -c 'echo "deb http://ppa.hornet.zone nightly main" >> /etc/apt/sources.list.d/hornet.list'
+  ```
+- Import the key that is used to sign the release
+
+  ```bash
+  wget -qO - https://ppa.hornet.zone/pubkey.txt | sudo apt-key add -
+  ```
+
+- Install HORNET:
+  ```bash
+  sudo apt update
+  sudo apt install hornet
+  ```
 - Start the HORNET service with:
   ```bash
   sudo service hornet start
@@ -43,7 +57,7 @@ This is a small tutorial on how to install HORNET using the `.deb` package.
 ### Configuration
 
 You can find HORNET's configuration files in:<br>
-`/etc/hornet/`<br><br>
+`/var/lib/hornet/`<br><br>
 
 If you have modified the `config.json`, you have to restart HORNET:<br>
 `sudo service hornet stop && sudo service hornet start`<br>
