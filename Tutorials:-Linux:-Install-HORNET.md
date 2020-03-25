@@ -56,9 +56,26 @@ This is a small tutorial on how to install HORNET using our apt repository.
 ### Configuration
 
 You can find HORNET's configuration files in:<br>
-`/var/lib/hornet/`<br><br>
+`/var/lib/hornet/`<br>
+
+Additional cli arguments can be set in:<br>
+`/etc/default/hornet`<br><br>
 
 If you have modified the `config.json`, you have to restart HORNET:<br>
 `sudo service hornet stop && sudo service hornet start`<br>
 or<br>
 `sudo service hornet restart`
+
+### Comnet (community network) setup
+
+1. Edit `/etc/default/hornet`:
+   ```bash
+   sudo nano /etc/default/hornet
+   ```
+   `/etc/default/hornet`:
+   ```
+   # Add cli arguments to hornet, e.g.:
+   # (For the full list of cli options run 'hornet -h')
+   OPTIONS="--config config_comnet"
+   ```
+2. Start HORNET
