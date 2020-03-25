@@ -2,7 +2,8 @@ This is a small tutorial on how to install HORNET using our apt repository.
 
 ### Preparations
 
-- Setup an Ubuntu server (Add a ssh key, activate a firewall,...)
+- Setup an e.g. Ubuntu (>= 16.04) server with at least 1GB RAM
+- Optional but recommended: Add a ssh key, activate a firewall,...
 - Update your system with:<br>
   ```bash
   sudo apt update
@@ -12,11 +13,9 @@ This is a small tutorial on how to install HORNET using our apt repository.
 ### Installation
 
 - Import the key that is used to sign the release
-
   ```bash
   wget -qO - https://ppa.hornet.zone/pubkey.txt | sudo apt-key add -
   ```
-
 - Add the HORNET repository to your APT sources<br>
   Stable:
   ```bash
