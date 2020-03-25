@@ -11,21 +11,21 @@ This is a small tutorial on how to install HORNET using our apt repository.
 
 ### Installation
 
-- Add the HORNET repository to your APT sources<br>
-  Stable:
-  ```bash
-  sudo sh -c 'echo "deb http://ppa.hornet.zone stable main" >> /etc/apt/sources.list.d/hornet.list'
-  ```
-  Nighly (pre-releases):<br>
-  ```bash
-  sudo sh -c 'echo "deb http://ppa.hornet.zone nightly main" >> /etc/apt/sources.list.d/hornet.list'
-  ```
 - Import the key that is used to sign the release
 
   ```bash
   wget -qO - https://ppa.hornet.zone/pubkey.txt | sudo apt-key add -
   ```
 
+- Add the HORNET repository to your APT sources<br>
+  Stable:
+  ```bash
+  sudo sh -c 'echo "deb http://ppa.hornet.zone stable main" >> /etc/apt/sources.list.d/hornet.list'
+  ```
+  Testing (incl. pre-releases):<br>
+  ```bash
+  sudo sh -c 'echo "deb http://ppa.hornet.zone testing main" >> /etc/apt/sources.list.d/hornet.list'
+  ```
 - Install HORNET:
   ```bash
   sudo apt update
