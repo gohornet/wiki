@@ -202,6 +202,12 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     []
     ```
+- `httpAPI.excludeHealthCheckFromAuth` bool
+  - Whether to allow the health check route anyways
+    <br>Default:
+    ```json
+    false
+    ```
 - `httpAPI.basicAuth.enabled` bool
   - Whether to use HTTP basic auth for the HTTP API
     <br>Default:
