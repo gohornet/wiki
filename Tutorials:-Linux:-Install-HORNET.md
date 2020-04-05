@@ -30,6 +30,15 @@ This is a small tutorial on how to install HORNET using our apt repository.
   sudo apt update
   sudo apt install hornet
   ```
+- Adapt the settings to your needs (e.g. [setup for comnet](#comnet-community-network-setup))
+- Enable the HORNET service:
+  ```bash
+  sudo systemctl enable hornet.service
+  ```
+- Start HORNET:
+  ```bash
+  sudo service hornet start
+  ```
 - Watch the logs with:
   ```bash
   sudo journalctl -u hornet.service -f
