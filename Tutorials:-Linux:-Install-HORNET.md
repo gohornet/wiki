@@ -30,10 +30,6 @@ This is a small tutorial on how to install HORNET using our apt repository.
   sudo apt update
   sudo apt install hornet
   ```
-- Start the HORNET service with:
-  ```bash
-  sudo service hornet start
-  ```
 - Watch the logs with:
   ```bash
   sudo journalctl -u hornet.service -f
