@@ -522,12 +522,6 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     "local"
     ```
-- `napshots.local.enabled` bool
-  - Whether to do local snapshots
-    <br>Default:
-    ```json
-    true
-    ```
 - `snapshots.local.depth` int
   - The depth, respectively the starting point, at which a local snapshot of the ledger is generated
     <br>Default:
