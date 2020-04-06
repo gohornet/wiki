@@ -9,6 +9,15 @@ This is a small tutorial on how to install HORNET using our apt repository.
   sudo apt update
   sudo apt upgrade
   ```
+- Allow basic ports in your firewall settings (and your router if you run HORNET behind one).<br>
+  The following ports are important for a flawless node operation.<br>
+  Please note that these ports can be customized in your `config.json`:<br>
+  ```
+  14626 UDP - Autopeering port
+  15600 TCP - Gossip (neighbors) port
+  14265 TCP - API port (optional if you don't want to access your node's API from external)
+  ```
+  Please also have a look at the [configuration documentation](https://github.com/gohornet/hornet/wiki/Configuration)
 
 ### Installation
 
