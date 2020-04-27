@@ -19,7 +19,7 @@ hornet tool pwdhash
 
 ### Merkle tree generator
 
-Generates a merkle tree for coordinator plugin.
+Generates a merkle tree for the coordinator plugin.
 
 This tool assumes that:
 

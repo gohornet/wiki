@@ -15,7 +15,7 @@ Adapt the configuration to your needs<br>
 **Enable the coordinator plugin:**
 
 ```json
-"node": {
+"node":{
     "alias": "Coordinator",
     "showAliasInGetNodeInfo": false,
     "disablePlugins": [],
@@ -26,7 +26,7 @@ Adapt the configuration to your needs<br>
 **Coordinator settings:**
 <br>
 [Coordinator configuration docu](https://github.com/gohornet/hornet/wiki/Configuration#Coordinator)
-<br>
+<br><br>
 Some hints:
 
 - Set a low MWM. If you are the only one using this Tangle, you need no (high) spam protection
@@ -34,23 +34,24 @@ Some hints:
 
 <br>
 Example:
+
 ```json
-"coordinator": {
-    "address": "",
-    "securityLevel": 2,
-    "merkleTreeDepth": 18,
-    "mwm": 5,
-    "stateFilePath": "coordinator.state",
-    "merkleTreeFilePath": "coordinator.tree",
-    "intervalSeconds": 60,
-    "checkpointTransactions": 5
+"coordinator":{
+    "address":"",
+    "securityLevel":2,
+    "merkleTreeDepth":18,
+    "mwm":5,
+    "stateFilePath":"coordinator.state",
+    "merkleTreeFilePath":"coordinator.tree",
+    "intervalSeconds":60,
+    "checkpointTransactions":5
 },
 ```
 
 **Global snapshot settings:**
 <br>
 [Snapshot configuration docu](https://github.com/gohornet/hornet/wiki/Configuration#Snapshots)
-<br>
+<br><br>
 
 ```json
 "snapshots": {
@@ -157,7 +158,8 @@ In case you run out of new milestones, you can replace the old merkle tree with 
 
 1.  Stop the HORNET Coordinator
 2.  Generate a new merkle tree
-3.  Migrate your HORNET Coordinator to this merkle tree:
+3.  Replace the `coordinator.address` in your `config.json` with the new `merkle tree root` address
+4.  Migrate your HORNET Coordinator to this merkle tree:
     ```
     cd /var/lib/hornet
     sudo rm coordinator.state

@@ -19,7 +19,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 - [Spammer](#Spammer)
 - [SpentAddresses](#SpentAddresses)
 - [Tipselection](#Tipselection)
-- [ZeroMQ](#ZeroMQ)
+- [ZMQ](#ZMQ)
 
 ## Config
 
@@ -71,7 +71,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     2
     ```
 - `coordinator.merkleTreeDepth` int
-  - The depth of the Merkle tree which in turn determines the number of leaves (private keys) that the coordinator can use to sign a message
+  - The depth of the merkle tree which in turn determines the number of leaves (private keys) that the coordinator can use to sign a message
     <br>Default:
     ```json
     23
@@ -664,7 +664,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     15
     ```
 
-## ZeroMQ
+## ZMQ
 
 **Type:** Plugin<br>
 **Status:** Disabled<br>
