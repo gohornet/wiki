@@ -4,6 +4,7 @@
   * [Tools](./Tools)
   * Tutorials
     * [Build HORNET](./Tutorials%3A-Build-HORNET)
+    * [Private Tangle](./Tutorials%3A-Private-Tangle)
     * Linux
       * [Install HORNET](./Tutorials%3A-Linux%3A-Install-HORNET)
 
