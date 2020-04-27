@@ -2,39 +2,24 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 
 ## Index
 
-- [Compass](#Compass)
 - [Config](#Config)
+- [Coordinator](#Coordinator)
 - [Dashboard](#Dashboard)
 - [DB](#DB)
 - [Graph](#Graph)
 - [httpAPI](#httpAPI)
 - [Logger](#Logger)
-- [Milestones](#Milestones)
 - [Monitor](#Monitor)
 - [MQTT](#MQTT)
 - [Network](#Network)
 - [Node](#Node)
 - [Profile](#Profile)
 - [Profiling](#Profiling)
-- [Protocol](#Protocol)
 - [Snapshots](#Snapshots)
 - [Spammer](#Spammer)
 - [SpentAddresses](#SpentAddresses)
 - [Tipselection](#Tipselection)
 - [ZeroMQ](#ZeroMQ)
-
-## Compass
-
-**Type:** Setting<br>
-**Status:** n.a.<br>
-**Options:**<br>
-
-- `compass.loadLSMIAsLMI` bool
-  - Set LSM as LSMI if enabled
-    <br>Default:
-    ```json
-    false
-    ```
 
 ## Config
 
@@ -65,6 +50,61 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     <br>Default:
     ```json
     "profiles"
+    ```
+
+## Coordinator
+
+**Type:** Setting<br>
+**Status:** n.a.<br>
+**Options:**<br>
+
+- `coordinator.address` string
+  - The address of the coordinator
+    <br>Default:
+    ```json
+    "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9"
+    ```
+- `coordinator.securityLevel` int
+  - The security level used in coordinator signatures
+    <br>Default:
+    ```json
+    2
+    ```
+- `coordinator.merkleTreeDepth` int
+  - The depth of the Merkle tree which in turn determines the number of leaves (private keys) that the coordinator can use to sign a message
+    <br>Default:
+    ```json
+    23
+    ```
+- `coordinator.mwm` int
+  - The minimum weight magnitude is the number of trailing 0s that must appear in the end of a transaction hash. Increasing this number by 1 will result in proof of work that is 3 times as hard
+    <br>Default:
+    ```json
+    14
+    ```
+- `coordinator.stateFilePath` string
+  - The path to the state file of the coordinator
+    <br>Default:
+    ```json
+    "coordinator.state"
+    ```
+- `coordinator.merkleTreeFilePath` string
+  - The path to the merkle tree of the coordinator
+    <br>Default:
+    ```json
+    "coordinator.tree"
+    ```
+- `coordinator.intervalSeconds` int
+  - The interval milestones are issued (in seconds)
+    <br>Default:
+    ```json
+    60
+    ```
+- `coordinator.checkpointTransactions` int
+  - The amount of checkpoints issued between two milestones
+    <br>Default:
+    ```json
+    5
     ```
 
 ## Dashboard
@@ -298,31 +338,6 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     false
     ```
 
-## Milestones
-
-**Type:** Setting<br>
-**Status:** n.a.<br>
-**Options:**<br>
-
-- `milestones.coordinator` string
-  - The address of the coordinator
-    <br>Default:
-    ```json
-    "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9"
-    ```
-- `milestones.coordinatorSecurityLevel` int
-  - The security level used in coordinator signatures
-    <br>Default:
-    ```json
-    2
-    ```
-- `milestones.numberOfKeysInAMilestone` int
-  - The depth of the Merkle tree which in turn determines the number of leaves (private keys) that the coordinator can use to sign a message
-    <br>Default:
-    ```json
-    23
-    ```
-
 ## Monitor
 
 **Type:** Plugin<br>
@@ -353,7 +368,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     4433
     ```
-- `monitor.initialTransactionsCount` int
+- `monitor.initialTransactions` int
   - The initial amount of tx to load
     <br>Default:
     ```json
@@ -495,19 +510,6 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     <br>Default:
     ```json
     "localhost:6060"
-    ```
-
-## Protocol
-
-**Type:** Setting<br>
-**Status:** n.a.<br>
-**Options:**<br>
-
-- `protocol.mwm` int
-  - The minimum weight magnitude is the number of trailing 0s that must appear in the end of a transaction hash. Increasing this number by 1 will result in proof of work that is 3 times as hard
-    <br>Default:
-    ```json
-    14
     ```
 
 ## Snapshots
