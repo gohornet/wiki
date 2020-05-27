@@ -1,6 +1,7 @@
   * [Home](./Home)
   * [FAQ](./FAQ)
   * [Configuration](./Configuration)
+  * [Plugins](./Plugins)
   * [Tools](./Tools)
   * Tutorials
     * [Build HORNET](./Tutorials%3A-Build-HORNET)
