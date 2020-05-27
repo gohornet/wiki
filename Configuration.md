@@ -13,8 +13,10 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 - [MQTT](#MQTT)
 - [Network](#Network)
 - [Node](#Node)
+- [Peering](#Peering)
 - [Profile](#Profile)
 - [Profiling](#Profiling)
+- [Prometheus](#Prometheus)
 - [Snapshots](#Snapshots)
 - [Spammer](#Spammer)
 - [SpentAddresses](#SpentAddresses)
@@ -23,7 +25,8 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 
 ## Config
 
-**Type:** Setting<br>
+**Type:** Flag<br>
+**File:** n.a.<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -39,13 +42,13 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     "."
     ```
-- `neighborsconfig` string
-  - Filename of the neighbors config file without the file extension
+- `peeringConfig` string
+  - Filename of the peering config file without the file extension
     <br>Default:
     ```json
-    "."
+    "peering"
     ```
-- `profilesconfig` string
+- `profilesConfig` string
   - Filename of the profiles config file without the file extension
     <br>Default:
     ```json
@@ -55,6 +58,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Coordinator
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -110,6 +114,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Dashboard
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Enabled<br>
 **Options:**<br>
 
@@ -159,6 +164,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## DB
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -172,6 +178,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Graph
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Disabled<br>
 **Options:**<br>
 
@@ -221,6 +228,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## httpAPI
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Enabled<br>
 **Options:**<br>
 
@@ -312,6 +320,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Logger
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -353,6 +362,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Monitor
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Disabled<br>
 **Options:**<br>
 
@@ -402,6 +412,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## MQTT
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Disabled<br>
 **Options:**<br>
 
@@ -415,6 +426,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Network
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -470,6 +482,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Node
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -498,9 +511,42 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     []
     ```
 
+## Peering
+
+**Type:** Setting<br>
+**File:** peering.json<br>
+**Status:** n.a.<br>
+**Options:**<br>
+
+- `acceptAnyConnection` bool
+  - Whether to enable inbound connections from unknown manual peers
+    <br>Default:
+    ```json
+    false
+    ```
+- `maxPeers` int
+  - Set the maximum number of manual peers (excl. max. 4 auto-peers)
+    <br>Default:
+    ```json
+    5
+    ```
+- `peers` []PeerConfig
+  - Set the URLs and IP addresses of manual peers
+    <br>Default:
+    ```json
+    [
+      {
+        "identity": "example.neighbor.com:15600",
+        "alias": "Example Peer",
+        "preferIPv6": false
+      }
+    ]
+    ```
+
 ## Profile
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -514,6 +560,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Profiling
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -524,9 +571,42 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     "localhost:6060"
     ```
 
+## Prometheus
+
+**Type:** Plugin<br>
+**File:** config.json<br>
+**Status:** Disabled<br>
+**Options:**<br>
+
+- `prometheus.bindAddress` string
+  - The bind address on which the Prometheus exporter listens on
+    <br>Default:
+    ```json
+    "localhost:9311"
+    ```
+- `prometheus.goMetrics` bool
+  - Whether to include go metrics
+    <br>Default:
+    ```json
+    false
+    ```
+- `prometheus.processMetrics` bool
+  - Whether to include process metrics
+    <br>Default:
+    ```json
+    false
+    ```
+- `prometheus.promhttpMetrics` bool
+  - Whether to include promhttp metrics
+    <br>Default:
+    ```json
+    false
+    ```
+
 ## Snapshots
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -604,6 +684,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Spammer
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Disabled<br>
 **Options:**<br>
 
@@ -653,6 +734,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## SpentAddresses
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -666,6 +748,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## Tipselection
 
 **Type:** Setting<br>
+**File:** config.json<br>
 **Status:** n.a.<br>
 **Options:**<br>
 
@@ -685,6 +768,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 ## ZMQ
 
 **Type:** Plugin<br>
+**File:** config.json<br>
 **Status:** Disabled<br>
 **Options:**<br>
 
