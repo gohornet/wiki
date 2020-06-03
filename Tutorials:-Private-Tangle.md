@@ -69,8 +69,8 @@ Example:
 **Note: This may take some time (depending on the merkle tree depth and your hardware)**
 
 1.  ```bash
-    export COO_SEED="YOUR9COO9SEED9HERE..."
-    sudo -u hornet hornet -d /var/lib/hornet tool merkle
+    cd /var/lib/hornet
+    sudo -u hornet COO_SEED="YOUR9COO9SEED9HERE..." hornet tool merkle
     ```
 
     The output will look like this:
@@ -135,7 +135,7 @@ If you set up a new tangle you initially need to distribute the IOTA to at least
     ```
 2.  Run HORNET the first time:
     ```
-    sudo -u hornet hornet --cooBootstrap
+    sudo -u hornet COO_SEED="YOUR9COO9SEED9HERE..." hornet --cooBootstrap
     ```
 3.  Once the bootstrap process is done you can stop HORNET (CTRL+C) and let it run as a service:
     ```
