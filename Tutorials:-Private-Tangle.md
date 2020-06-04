@@ -92,13 +92,7 @@ Example:
     successfully created merkle tree (took 1s).
     ```
 
-2.  Copy the generated `coordinator.tree` to your HORNET folder:
-
-    ```
-    sudo mv coordinator.tree /var/lib/hornet/
-    ```
-
-3.  Add the `merkle tree root` address to your config<br><br>
+2.  Add the `merkle tree root` address to your config<br><br>
     Example:
     ```json
     "coordinator": {
@@ -125,7 +119,7 @@ If you set up a new tangle you initially need to distribute the IOTA to at least
     YOUR9GENERATED9ADDRESS9FROM9YOUR9SEED;2779530283277761
     ```
 
-4.  Safe this file to the HORNET dir (`/var/lib/hornet`)
+4.  Save this file to the HORNET dir (`/var/lib/hornet`)
 
 ### Bootstrap the Coordinator
 
@@ -140,9 +134,7 @@ If you set up a new tangle you initially need to distribute the IOTA to at least
 3.  Once the bootstrap process is done you can stop HORNET (CTRL+C) and let it run as a service:
     ```
     sudo sh -c 'echo "COO_SEED=YOUR9COO9SEED9HERE..." >> /etc/default/hornet'
-    sudo systemctl daemon-reload
-    sudo systemctl enable hornet.service
-    sudo service hornet start
+    sudo systemctl enable --now hornet.service
     ```
 4.  Congrats, your HORNET Coordinator is up and running!
 
