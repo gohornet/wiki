@@ -1,10 +1,10 @@
-This is a small tutorial on how to install HORNET using our apt repository.
+This is a small tutorial on how to install HORNET using our apt repository or using the RPM package.
 
 ### Preparations
 
-- Setup an e.g. Ubuntu (>= 16.04) server with at least 1GB RAM
-- Optional but recommended: Add a ssh key, activate a firewall,...
-- Update your system with:<br>
+- Setup an e.g. Ubuntu (>= 16.04) or CentOS (>= 7) server with at least 1GB RAM
+- Optional but recommended: Add a ssh key, activate a firewall ...
+- Update your system (Ubuntu) with:<br>
   ```bash
   sudo apt update
   sudo apt upgrade
@@ -19,7 +19,7 @@ This is a small tutorial on how to install HORNET using our apt repository.
   ```
   Please also have a look at the [configuration documentation](https://github.com/gohornet/hornet/wiki/Configuration)
 
-### Installation
+### Installation (Ubuntu)
 
 - Import the key that is used to sign the release
   ```bash
@@ -39,6 +39,29 @@ This is a small tutorial on how to install HORNET using our apt repository.
   sudo apt update
   sudo apt install hornet
   ```
+### Installation (CentOS)
+
+- Open [HORNET latest release page](https://github.com/gohornet/hornet/releases/latest)
+
+- Copy the link to the RPM package (e.g. `hornet-0.4.0-x86_64.rpm`)
+
+- Consider validating the RPM package checksum against the corresponding one from the `checksums.txt`
+
+- Install the HORNET RPM package from the releases page, e.g. version v0.4.0:
+  ```bash
+  sudo yum install https://github.com/gohornet/hornet/releases/download/v0.4.0/hornet-0.4.0-x86_64.rpm
+  ```
+  or from a file:
+  ```bash
+  sudo yum install hornet-0.4.0-x86_64.rpm
+  ```
+- Note: Checksum can be verified if the RPM package and checksum file are present in the same directory, should return a value and the file name:
+  ```bash
+  grep "^$(sha256sum hornet-0.4.0-x86_64.rpm)$" checksums.txt
+  ```
+
+### Setup
+
 - Adapt the settings to your needs (e.g. [setup for comnet](#comnet-community-network-setup))
 - Enable the HORNET service:
   ```bash
@@ -50,7 +73,7 @@ This is a small tutorial on how to install HORNET using our apt repository.
   ```
 - Watch the logs with:
   ```bash
-  sudo journalctl -u hornet.service -f
+  sudo journalctl -u hornet -f
   ```
 - Done
 
@@ -60,8 +83,12 @@ This is a small tutorial on how to install HORNET using our apt repository.
   - `sudo service hornet stop`
 - Start HORNET
   - `sudo service hornet start`
+- Restart HORNET
+  - `sudo service hornet restart`
+- Check HORNET status
+  - `sudo service hornet status`
 - Watch the logs
-  - `sudo journalctl -u hornet.service -f`
+  - `sudo journalctl -u hornet -f`
 - Remove the mainnetdb (e.g. in case of a failure):
   1. Stop HORNET
   2. `sudo rm -r /var/lib/hornet/mainnetdb`
