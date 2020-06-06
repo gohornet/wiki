@@ -55,7 +55,7 @@ This is a small tutorial on how to install HORNET using our apt repository or us
   ```bash
   sudo yum install hornet-0.4.0-x86_64.rpm
   ```
-- Note: Checksum can be verified if the RPM package and checksum file are present in the same directory:
+- Note: Checksum can be verified if the RPM package and checksum file are present in the same directory, should return a value and the file name:
   ```bash
   grep "^$(sha256sum hornet-0.4.0-x86_64.rpm)$" checksums.txt
   ```
