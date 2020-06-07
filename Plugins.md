@@ -82,12 +82,12 @@ Plugins can be (de-)activated in your [`config.json`](./Configuration#node)
 
 **Status:** Enabled
 **Description:** Runs an API server to be able to interact with the node.
-**Settings**: [link](Configuration#httpAPI)
+**Settings**: [link](./Configuration#httpAPI)
 **How-To**: n.a.
 
 ## ZMQ
 
 **Status:** Disabled
 **Description:** Runs an ZMQ publisher.
-**Settings**: [link](Configuration#zmq)
+**Settings**: [link](./Configuration#ZMQ)
 **How-To**: n.a.
