@@ -12,7 +12,7 @@ Plugins can be (de-)activated in your [`config.json`](./Configuration#node)
 - [Prometheus](#Prometheus)
 - [Spammer](#Spammer)
 - [WarpSync](#WarpSync)
-- [httpAPI](#httpAPI)
+- [WebAPI](#WebAPI)
 - [ZMQ](#ZMQ)
 
 ## Autopeering
@@ -78,7 +78,7 @@ Plugins can be (de-)activated in your [`config.json`](./Configuration#node)
 **Settings**: n.a.
 **How-To**: n.a.
 
-## httpAPI
+## WebAPI
 
 **Status:** Enabled
 **Description:** Runs an API server to be able to interact with the node.
