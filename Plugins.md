@@ -89,5 +89,5 @@ Plugins can be (de-)activated in your [`config.json`](./Configuration#node)
 
 **Status:** Disabled  
 **Description:** Runs an ZMQ publisher.  
-**Settings**: [link](Configuration#httpAPI)  
+**Settings**: [link](Configuration#ZMQ)  
 **How-To**: n.a.

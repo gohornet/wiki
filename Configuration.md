@@ -712,11 +712,23 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     3
     ```
+- `spammer.bundleSize` int
+  - The size of the spam bundles
+    <br>Default:
+    ```json
+    1
+    ```
+- `spammer.valueSpam` bool
+  - Enable spamming with value bundles
+    <br>Default:
+    ```json
+    false
+    ```
 - `spammer.tpsRateLimit` float
   - Defines how many transactions (TX) the spammer should try to send (e.g. `0.1` stands for 0.1 TX per second --> 1 TX every 10 seconds. **NOTE:** the maximum `tpsratelimit` is limited by your used hardware. Start with a lower value and slightly increase it, watch your CPU usage (0 = no limit).
     <br>Default:
     ```json
-    0.0
+    0.1
     ```
 - `spammer.cpuMaxUsage` float
   - Workers remains idle for a while when cpu usage gets over this limit (0 = disable)
@@ -728,7 +740,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
   - Number of workers the spammer spins up --> Number of CPU cores you want to use (you should not use all available cores)
     <br>Default:
     ```json
-    0
+    1
     ```
 
 ## SpentAddresses
