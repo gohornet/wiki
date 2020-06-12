@@ -26,11 +26,12 @@ This is a small tutorial on how to install HORNET using our apt repository or us
   wget -qO - https://ppa.hornet.zone/pubkey.txt | sudo apt-key add -
   ```
 - Add the HORNET repository to your APT sources<br>
-  Stable:
+  **Stable:**
   ```bash
   sudo sh -c 'echo "deb http://ppa.hornet.zone stable main" >> /etc/apt/sources.list.d/hornet.list'
   ```
-  Testing (incl. pre-releases):<br>
+  **Testing (pre-releases):**<br>
+  :warning: **Do not use in production, bugs are likely** :warning:
   ```bash
   sudo sh -c 'echo "deb http://ppa.hornet.zone testing main" >> /etc/apt/sources.list.d/hornet.list'
   ```
@@ -39,6 +40,7 @@ This is a small tutorial on how to install HORNET using our apt repository or us
   sudo apt update
   sudo apt install hornet
   ```
+
 ### Installation (CentOS)
 
 - Open [HORNET latest release page](https://github.com/gohornet/hornet/releases/latest)
