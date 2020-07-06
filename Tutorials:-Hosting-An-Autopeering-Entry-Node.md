@@ -10,7 +10,7 @@ This is a tutorial on how to host a autopeering entry node.
 
 ### Configuration
 
-- Randomly generate a Base64 encoded 256-bit string (seed):
+- Randomly generate a Base58 encoded 256-bit string (seed):
   - Option 1: Generate your seed with a true random number generator (recommended for production usage).
   - Option 2: Use the build in HORNET seed generator: `hornet tool seedgen`.
 - Switch on the autopeering mode in your `config.json`:<br>
@@ -22,7 +22,7 @@ This is a tutorial on how to host a autopeering entry node.
       "autopeering": {
           "bindAddress": "0.0.0.0:14626",
           "runAsEntryNode": true,
-          "seed": "YOUR9ENTRY9NODE9SEED9HERE"
+          "seed": "7xFNTP5Fc3wnD78LarNTrvRoKiLESA9qecn3eR5HSVBj"
       }
   }
   ...
@@ -30,7 +30,7 @@ This is a tutorial on how to host a autopeering entry node.
 - Start HORNET with `sudo service start hornet && sudo journalctl -n hornet -f`. HORNET will start in an autopeering entry node only mode. Other functions are disabled in this mode.
 - In the HORNET logs, you will see something like this:
   ```
-  INFO    Autopeering     Autopeering started: ID=a0ba6bf62d6fe911 Address=0.0.0.0:14626/udp PublicKey=yt0URaOzv819RIIgSE/NzJBVh8Lgn+tNTekvfB0O/UE=
+  INFO    Autopeering     Autopeering started: ID=a0ba6bf62d6fe911 Address=0.0.0.0:14626/udp PublicKey=9CT42uZC6GetwoT2Jz7Lc5t6LGvXphp9gLvEsdoXEizV
   ```
   Note down your PublicKey.<br>
   **Your entry node address is `<PublicKey>@<your-domain.tld>:<autopeering-port>`**
