@@ -33,7 +33,7 @@ This is a small tutorial on how to install HORNET using our apt repository or us
   **Testing (pre-releases):**<br>
   :warning: **Do not use in production, bugs are likely** :warning:
   ```bash
-  sudo sh -c 'echo "deb http://ppa.hornet.zone testing main" >> /etc/apt/sources.list.d/hornet.list'
+  sudo sh -c 'echo "deb http://ppa.hornet.zone alpha main" >> /etc/apt/sources.list.d/hornet.list'
   ```
 - Install HORNET:
   ```bash
