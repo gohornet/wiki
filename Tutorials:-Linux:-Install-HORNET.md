@@ -35,6 +35,13 @@ This is a small tutorial on how to install HORNET using our apt repository or us
   ```bash
   sudo sh -c 'echo "deb http://ppa.hornet.zone testing main" >> /etc/apt/sources.list.d/hornet.list'
   ```
+    **Alpha (pre-releases):**<br>
+  :warning: **Only for Comnet, do not use in production, bugs are likely** :warning:
+  
+  Follow the updates in the #comnet channel if you want to run this version!
+  ```bash
+  sudo sh -c 'echo "deb http://ppa.hornet.zone alpha main" >> /etc/apt/sources.list.d/hornet.list'
+  ```
 - Install HORNET:
   ```bash
   sudo apt update
