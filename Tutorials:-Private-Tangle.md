@@ -36,16 +36,18 @@ Some hints:
 Example:
 
 ```json
-"coordinator":{
-    "address":"",
-    "securityLevel":2,
-    "merkleTreeDepth":18,
-    "mwm":5,
-    "stateFilePath":"coordinator.state",
-    "merkleTreeFilePath":"coordinator.tree",
-    "intervalSeconds":60,
-    "checkpointTransactions":5
-},
+  "coordinator": {
+    "address": "",
+    "securityLevel": 2,
+    "merkleTreeDepth": 18,
+    "mwm": 5,
+    "stateFilePath": "coordinator.state",
+    "merkleTreeFilePath": "coordinator.tree",
+    "intervalSeconds": 60,
+    "checkpoints": {
+      "maxTrackedTails": 10000
+    }
+  },
 ```
 
 **Global snapshot settings:**
@@ -54,14 +56,14 @@ Example:
 <br><br>
 
 ```json
-"snapshots": {
+  "snapshots": {
     "loadType": "global",
     "global": {
-        "path": "snapshot.csv",
-        "spentAddressesPaths": [],
-        "index": 0
+      "path": "snapshot.csv",
+      "spentAddressesPaths": [],
+      "index": 0
     }
-},
+  },
 ```
 
 ### Generate the merkle tree
@@ -95,16 +97,18 @@ Example:
 2.  Add the `merkle tree root` address to your config<br><br>
     Example:
     ```json
-    "coordinator": {
-        "address": "BHKJSBMRSZLFMXJFYE9NHYTZCRAZQHLZTIBTKVNZLVWAXKESPOANYARWQYOYYHONDJYEAMMSOQEGGEPKB",
-        "securityLevel": 2,
-        "merkleTreeDepth": 18,
-        "mwm": 5,
-        "stateFilePath": "coordinator.state",
-        "merkleTreeFilePath": "coordinator.tree",
-        "intervalSeconds": 60,
-        "checkpointTransactions": 5
-    },
+  "coordinator": {
+    "address": "BHKJSBMRSZLFMXJFYE9NHYTZCRAZQHLZTIBTKVNZLVWAXKESPOANYARWQYOYYHONDJYEAMMSOQEGGEPKB",
+    "securityLevel": 2,
+    "merkleTreeDepth": 18,
+    "mwm": 5,
+    "stateFilePath": "coordinator.state",
+    "merkleTreeFilePath": "coordinator.tree",
+    "intervalSeconds": 60,
+    "checkpoints": {
+      "maxTrackedTails": 10000
+    }
+  },
     ```
 
 ### Initial IOTA Distribution
