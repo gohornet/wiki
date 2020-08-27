@@ -96,7 +96,7 @@ Example:
 
 2.  Add the `merkle tree root` address to your config<br><br>
     Example:
-    ```json
+```json
   "coordinator": {
     "address": "BHKJSBMRSZLFMXJFYE9NHYTZCRAZQHLZTIBTKVNZLVWAXKESPOANYARWQYOYYHONDJYEAMMSOQEGGEPKB",
     "securityLevel": 2,
@@ -109,7 +109,7 @@ Example:
       "maxTrackedTails": 10000
     }
   },
-    ```
+```
 
 ### Initial IOTA Distribution
 
