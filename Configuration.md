@@ -102,14 +102,8 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     60
     ```
-- `coordinator.checkpoint.maxTrackedTails` int
-  - The amount of ???
-    <br>Default:
-    ```json
-    10000
-    ```
 - `coordinator.checkpoint.maxTrackedTransactions` int
-  - The amount of ???
+  - The maximum amount of known bundle tails for milestone tipselection
     <br>Default:
     ```json
     10000
@@ -599,7 +593,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     "HORNET99INTEGRATED99SPAMMER999999999999999999999999999999999999999999999999999999"
     ```
 - `spammer.autostart` bool
-  - ???
+  - Whether to automatically start the spammer on node startup
     <br>Default:
     ```json
     false
