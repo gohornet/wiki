@@ -742,6 +742,12 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     1
     ```
+- `spammer.autostart` bool
+  - Whether to automatically start the spammer on node startup. To start it via the API, use the `/spammer` endpoint.
+    <br>Default:
+    ```json
+    false
+    ```
 
 ## SpentAddresses
 
