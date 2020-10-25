@@ -6,10 +6,8 @@ You can adapt HORNET to your needs. The configuration options are shown below.
 - [Coordinator](#Coordinator)
 - [Dashboard](#Dashboard)
 - [DB](#DB)
-- [Graph](#Graph)
 - [httpAPI](#httpAPI)
 - [Logger](#Logger)
-- [Monitor](#Monitor)
 - [MQTT](#MQTT)
 - [Network](#Network)
 - [Node](#Node)
@@ -104,11 +102,11 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     60
     ```
-- `coordinator.checkpointTransactions` int
-  - The amount of checkpoints issued between two milestones
+- `coordinator.checkpoint.maxTrackedTransactions` int
+  - The maximum amount of known bundle tails for milestone tipselection
     <br>Default:
     ```json
-    5
+    10000
     ```
 
 ## Dashboard
@@ -173,56 +171,6 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     <br>Default:
     ```json
     mainnetdb
-    ```
-
-## Graph
-
-**Type:** Plugin<br>
-**File:** config.json<br>
-**Status:** Disabled<br>
-**Options:**<br>
-
-- `graph.webRootPath` string
-  - The path to the visualizer web assets
-    <br>Default:
-    ```json
-    "IOTAtangle/webroot"
-    ```
-- `graph.webSocket.uri` string
-  - The websocket URI to use (optional)
-    <br>Default:
-    ```json
-    ""
-    ```
-- `graph.domain` string
-  - Sets the domain name from which the visualizer is served from
-    <br>Default:
-    ```json
-    ""
-    ```
-- `graph.bindAddress` string
-  - The bind address from which the visualizer can be accessed from
-    <br>Default:
-    ```json
-    "localhost:8083"
-    ```
-- `graph.networkName` string
-  - The name of the network to be shown on the visualizer site
-    <br>Default:
-    ```json
-    "meets HORNET"
-    ```
-- `graph.explorerTxLink` string
-  - The explorer transaction link
-    <br>Default:
-    ```json
-    "http://localhost:8081/explorer/tx/"
-    ```
-- `graph.explorerBundleLink` string
-  - The explorer bundle link
-    <br>Default:
-    ```json
-    "http://localhost:8081/explorer/bundle/"
     ```
 
 ## httpAPI
@@ -357,56 +305,6 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     <br>Default:
     ```json
     false
-    ```
-
-## Monitor
-
-**Type:** Plugin<br>
-**File:** config.json<br>
-**Status:** Disabled<br>
-**Options:**<br>
-
-- `monitor.tangleMonitorPath` string
-  - Path to the tanglemonitor web assets
-    <br>Default:
-    ```json
-    "tanglemonitor/frontend"
-    ```
-- `monitor.domain` string
-  - The domain from which the tanglemonitor is served from
-    <br>Default:
-    ```json
-    ""
-    ```
-- `monitor.webSocket.uri` string
-  - The websocket URI to use (optional)
-    <br>Default:
-    ```json
-    ""
-    ```
-- `monitor.remoteAPIPort` int
-  - The remote API port
-    <br>Default:
-    ```json
-    4433
-    ```
-- `monitor.initialTransactions` int
-  - The initial amount of tx to load
-    <br>Default:
-    ```json
-    15000
-    ```
-- `monitor.webBindAddress` string
-  - The bind address on which the monitor can be access from
-    <br>Default:
-    ```json
-    "localhost:4434"
-    ```
-- `monitor.apiBindAddress` string
-  - The bind address on which the API listens on
-    <br>Default:
-    ```json
-    "localhost:4433"
     ```
 
 ## MQTT
@@ -694,6 +592,13 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     "HORNET99INTEGRATED99SPAMMER999999999999999999999999999999999999999999999999999999"
     ```
+- `spammer.autostart` bool
+  - Whether to automatically start the spammer on node startup
+    <br>Default:
+    ```json
+    false
+    ```
+
 - `spammer.message` string
   - The message you want to send with your spam (keep it short)
     <br>Default:

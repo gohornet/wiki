@@ -6,8 +6,6 @@ Plugins can be (de-)activated in your [`config.json`](./Configuration#node)
 - [Autopeering](#Autopeering)
 - [Coordinator](#Coordinator)
 - [Dashboard](#Dashboard)
-- [Graph](#Graph)
-- [Monitor](#Monitor)
 - [MQTT](#MQTT)
 - [Prometheus](#Prometheus)
 - [Spammer](#Spammer)
@@ -34,20 +32,6 @@ Plugins can be (de-)activated in your [`config.json`](./Configuration#node)
 **Status:** Enabled  
 **Description:** Runs a dashboard to monitor the node.  
 **Settings**: [link](./Configuration#Dashboard)  
-**How-To**: n.a.
-
-## Graph
-
-**Status:** Disabled  
-**Description:** Runs a [Glumb](https://github.com/glumb/IOTAtangle) tangle viewer.  
-**Settings**: [link](./Configuration#Graph)  
-**How-To**: n.a.
-
-## Monitor
-
-**Status:** Disabled  
-**Description:** Runs a [TangleMonitor](https://github.com/unioproject/tanglemonitor).  
-**Settings**: [link](./Configuration#Monitor)  
 **How-To**: n.a.
 
 ## MQTT
