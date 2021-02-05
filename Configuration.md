@@ -152,7 +152,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     ""
     ```
-    See Encoding-Tool (pwdhash) on Tools-page for more information.
+    See Encoding-Tool (pwdhash) on [Tools-Page](https://github.com/gohornet/hornet/wiki/Tools) for more information.
     
 - `dashboard.basicAuth.passwordsalt` string
   - The HTTP basic auth salt used for hashing the password (must be lower cased)
@@ -236,7 +236,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ```json
     ""
     ```
-    See Encoding-Tool (pwdhash) on Tools-page for more information.
+    See Encoding-Tool (pwdhash) on [Tools-Page](https://github.com/gohornet/hornet/wiki/Tools) for more information.
     
 - `httpAPI.basicauth.passwordsalt` string
   - The HTTP basic auth salt used for hashing the password (must be lower cased)
