@@ -147,7 +147,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ""
     ```
 - `dashboard.basicAuth.passwordhash` string
-  - The HTTP basic auth password+salt as a sha256 hash (must be lower cased)
+  - The HTTP basic auth password+salt as a HEX-Encoded string (must be lower cased)
     <br>Default:
     ```json
     ""
@@ -229,7 +229,7 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ""
     ```
 - `httpAPI.basicauth.passwordhash` string
-  - The HTTP basic auth password+salt as a sha256 hash (must be lower cased)
+  - The HTTP basic auth password+salt as a HEX-Encoded string (must be lower cased)
     <br>Default:
     ```json
     ""
