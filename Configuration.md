@@ -147,11 +147,13 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ""
     ```
 - `dashboard.basicAuth.passwordhash` string
-  - The HTTP basic auth password+salt as a sha256 hash (must be lower cased)
+  - The HTTP basic auth password+salt as a HEX-Encoded string (must be lower cased)
     <br>Default:
     ```json
     ""
     ```
+    See Encoding-Tool (pwdhash) on [Tools-Page](https://github.com/gohornet/hornet/wiki/Tools) for more information.
+    
 - `dashboard.basicAuth.passwordsalt` string
   - The HTTP basic auth salt used for hashing the password (must be lower cased)
     <br>Default:
@@ -229,11 +231,13 @@ You can adapt HORNET to your needs. The configuration options are shown below.
     ""
     ```
 - `httpAPI.basicauth.passwordhash` string
-  - The HTTP basic auth password+salt as a sha256 hash (must be lower cased)
+  - The HTTP basic auth password+salt as a HEX-Encoded string (must be lower cased)
     <br>Default:
     ```json
     ""
     ```
+    See Encoding-Tool (pwdhash) on [Tools-Page](https://github.com/gohornet/hornet/wiki/Tools) for more information.
+    
 - `httpAPI.basicauth.passwordsalt` string
   - The HTTP basic auth salt used for hashing the password (must be lower cased)
     <br>Default:

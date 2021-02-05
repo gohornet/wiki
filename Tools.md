@@ -9,9 +9,9 @@ Generates an autopeering seed.<br>
 hornet tool seedgen
 ```
 
-### Password SHA256 sum generator
+### Password HEX-Encoded string generator
 
-Generates an sha265 sum from your password and salt.
+Generates an HEX-Encoded string from your password and salt.
 
 ```bash
 hornet tool pwdhash
