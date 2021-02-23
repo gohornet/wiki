@@ -437,6 +437,16 @@ You can adapt HORNET to your needs. The configuration options are shown below.
         "identity": "example.neighbor.com:15600",
         "alias": "Example Peer",
         "preferIPv6": false
+      },
+      {
+        "identity": "example2.neighbor.com:15600",
+        "alias": "Example Peer 2",
+        "preferIPv6": false
+      },      
+      {
+        "identity": "example3.neighbor.com:15600",
+        "alias": "Example Peer 3",
+        "preferIPv6": false
       }
     ]
     ```
